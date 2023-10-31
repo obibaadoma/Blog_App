@@ -169,7 +169,7 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
+<!-- AUTHORS  -->
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -190,7 +190,6 @@ Example:
 
 - [ ] **[new_feature_1]**
 - [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
