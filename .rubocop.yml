@@ -16,8 +16,11 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  IgnoredMethods: ['describe']
-  Max: 45
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'  # Exclude spec files from block length checks
+  AllowedMethods:
+    - 'my_custom_method'  # Add your allowed methods here
 
 
 Style/Documentation:
