@@ -137,7 +137,7 @@ Install this project with:
 
 
 ```sh
-  cd blogapp
+  cd BLOG-APP
   gem install
 ```
 
