@@ -7,17 +7,13 @@ jobs:
     name: RSpec
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2 # Use actions/checkout@v2
-      - name: Set up Ruby 3.2.2 # Specify Ruby version 3.2.2
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
-      - name: Set up Bundler # Install and set up Bundler 2.4.21
-        run: |
-          gem install bundler -v 2.4.21 --no-document
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          ruby-version: 3.1.x
       - name: Setup RSpec
-        run: gem install --no-document rspec -v '>=3.0, < 4.0'
+        run: |
+          [ -f Gemfile ] && bundle
+          gem install --no-document rspec -v '>=3.0, < 4.0'
       - name: RSpec Report
-        run: bundle exec rspec --force-color --format documentation
+        run: rspec --force-color --format documentation
