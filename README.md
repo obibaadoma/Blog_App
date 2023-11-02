@@ -95,7 +95,7 @@ In order to run this project you need:
 
 - GitHub: [@Obiba Kweku Adoma](https://github.com/obibaadoma)
 - Twitter: [@ObibaKwekuAdoma](https://twitter.com/obibakwekuadoma)
-- LinkedIn: [Derek Akrasi Konadu](https://www.linkedin.com/derek-akrasi-konadu/)
+- LinkedIn: [Derek Akrasi Konadu](https://www.linkedin.com/in/derek-akrasi-konadu-187453151/)
 
 
 ## 🔭 Future Features <a name="future-features"></a>
