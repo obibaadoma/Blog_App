@@ -8,7 +8,6 @@ class Comment < ApplicationRecord
 
   after_save :update_comments
 
-
   def update_comments_counter
     post = self.post
     post.update(comments_counter: post.comments.count)
