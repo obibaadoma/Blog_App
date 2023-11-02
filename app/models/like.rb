@@ -7,7 +7,6 @@ class Like < ApplicationRecord
 
   after_save :update_likes
 
-  private
 
   def update_likes
     post = self.post
