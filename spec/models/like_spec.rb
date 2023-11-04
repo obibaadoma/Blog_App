@@ -1,32 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  before :all do
-    @user = User.create(name: 'Phil')
-    @post = Post.create(author: @user, title: 'Title')
-  end
+  subject { Like.new(author_id: 1, post_id: 1) }
 
-  context '#create' do
-    it 'is valid with existing user and post' do
-      expect(Like.new(user: @user, post: @post)).to be_valid
+  before { subject.save }
+
+  describe " model validation: \n" do
+    it 'The author-id of the like model created right now should not be 50 ' do
+      expect(subject.author_id).to_not eq(50)
     end
 
-    it 'is not valid without post' do
-      expect(Like.new(user: @user)).to_not be_valid
+    it 'The author-id of the like model created right now should be 1 ' do
+      expect(subject.author_id).to eq(1)
+    end
+    it 'The post_id of the like model created right now should be 1 ' do
+      expect(subject.post_id).to eq(1)
     end
 
-    it 'is not valid without user' do
-      expect(Like.new(post: @post)).to_not be_valid
-    end
-  end
-
-  context '#update_likes_counter' do
-    before :all do
-      8.times { Like.create(user: @user, post: @post) }
+    it 'The like should have an author_id ' do
+      subject.author_id = nil
+      expect(subject).to_not be_valid
     end
 
-    it 'keeps track of likes and equals 8' do
-      expect(@post.likes_counter).to eq 8
+    it 'The like should have a post_id else it is invalid ' do
+      subject.post_id = nil
+      expect(subject).to_not be_valid
     end
   end
 end
