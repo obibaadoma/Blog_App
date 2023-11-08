@@ -1,7 +1,8 @@
 <div class="user-posts-wrapper">
-    <div class="user-posts">
+  <h1 class="header-text"> Here is an author with her/his corresponding bio and his/her posts </h1>
+  <div class="user-posts">
     <div class="author-info user-link-container">
-        <img class="post-box" src ="/box-post.png" alt="<%= @user.name %>">
+        <img class="post-box" src ="/box-post.png" alt="<%= @user.name %>'s profile picture">
         <div class="user-link-wrapper">
           <p class="username-link"> <%= link_to @user.name, user_path(@user) %> </p>
           <p class="posts-counter">  Number of posts: <%= @user.posts_counter %> </p>
