@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-  <h3><b>Blog_App Project README Template.</b></h3>
+  <h3><b>Blog_App Project README Template..</b></h3>
 
 </div>
 
