@@ -1,15 +1,42 @@
-<div id="post" >
-  <h3><%= @post.title %> by <%= @post.author.name %></h3>
-  <p class="counter">
-    Comments: <%= @post.comments_counter.to_i %>, Likes: <%= @post.likes_counter.to_i %>
-  </p>
-  <p><%= @post.text %></p>
-</div>
 
-<ul id="comment_container">
-  <% @post.comments.each do |comment| %>
-    <li id="comment">
-      <p><%= comment.user.name %>: <%= comment.text %></p>
-    </li>
-  <% end %>
-</ul>
+<div class="post-detail-wrapper">
+  <h1 class="header-text"> This shows the details of a post with id = <%= @post.id %>
+  and written by an author with id = <%= @post.author.id%>
+  </h1>
+
+  <div class="post-comment-container">
+   <div class="post-info-text">
+    <div class="post-header">
+      <p class="post-title"> <%= @post.title %> by <%= @post.author.name%> </p>
+      <p class="comments-likes-count">
+        Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %>
+      </p>
+    </div>
+
+    <div class="post-text-wrapper">
+      <p class="post-text"> <%= @post.text%> </p>
+    </div>
+   </div>
+
+   <%= render "shared/like" %>
+
+   <ul class="comment-list">
+    <% @post.comments.each do |comment| %>
+      <li class="comment-item">
+       <%= comment.author.name  %>: <%= comment.text %>
+      </li>
+    <% end %>
+   </ul>
+
+   <div class="btn-group">
+     <button class="btn btn-create-comment">
+        <%= link_to "Comment here", comment_new_path %>
+     </button>
+
+    <button class="btn btn-all-comments">
+      <%= link_to 'See all comments', uncompleted_path %>
+    </button>
+   </div>
+
+  </div>
+</div>
