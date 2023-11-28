@@ -1,40 +1,15 @@
 <a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-After you're finished please remove all the comments and instructions!
--->
-
 <div align="center">
 
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Blog App</b></h3>
+  <h3><b>Blog-App</b></h3>
 
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[blogApp\] ](#-blogapp-)
+- [📖Blog App: Controllers-specs](#blog-app-controllers-specs)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -43,8 +18,7 @@ After you're finished please remove all the comments and instructions!
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-    - [Run tests](#run-tests)
-    - [Deployment](#deployment)
+    - [Test](#test)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -53,59 +27,62 @@ After you're finished please remove all the comments and instructions!
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-<!-- PROJECT DESCRIPTION -->
 
-# 📖 [blogApp] <a name="about-project"></a>
+# 📖Blog App: Controllers-specs<a name="about-project"></a>
+> `Blog APP` is a rails application which allows customers to create posts, add comments, likes the posts. It also allowers users to display whole blog post authors, posts for each author, comments for each post, the number of posts for each user, and the number of comments and likes for each post. In this project, unit tests for each component using `rspec-rails` and integration tests for each view is also implemented.
 
-> A simple ruby project for checking blogs written by different users
 
-**[blogApp]** is a...
-
+`Authentication using devise` is the ninth milestone of the `Blog App` project intended for Microverse students to exercise on creating authetication using devise gem.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Ruby on rails
-
 <details>
-  <summary>Client</summary>
+<summary>Ruby</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://www.ruby-lang.org/">PostgreSQL</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://www.postgresql.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
-<!-- Features -->
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Relish</summary>
+  <ul>
+    <li><a href="https://relishapp.com/rspec/">RSpec rspec-rails</a></li>
+  </ul>
+</details>
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+- **Add methods(new, create) for each form**
+- **Create form templates using `form_wth rails form helper**
+- **Create partials to be embedded in main templates**
+- **Optimize databse table queries(applied in `posts#index` template)**
+- **Write integration tests for each view in the project**
+- **Can register a user**
+- **Asks fo confirmation of an email**
+- **A user can reset a password**
+- **Login fields changed to be username and password**
 
-- **[key_feature_1]**
-- **[key_feature_2]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -113,140 +90,114 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-
-
-```sh
- gem install rails
-```
+- `have installed ruby, git, npm, rails, gem`
 
 
 ### Setup
 
-Clone this repository to your desired folder.:
+Clone this repository to your desired folder:
 
 
-
-```sh
   cd my-folder
-  git clone git@github.com:obibakweku/blog-app.git
-```
+  git clone git@github.com:obibaadoma/Blog_App.git
+
 
 ### Install
 
 Install this project with:
 
+  cd `Blog-App`
+  gem install rails
+  Add `rspec-rails` bundle in `gem` module
+  Bundle Install
 
-```sh
-  cd BLOG-APP
-  gem install
-```
 
 ### Usage
 
 To run the project, execute the following command:
 
+  - Run the command `rails server`
+  - Start the rails server and append the corresponding `urls pattern`.
 
-```sh
-  rails server
-```
+### Test
+To test each unit tests of the project, execute the following command in your root directory of this repo.
+  - `rspec spec/folder/unit_test_spec.rb,` e.g rspec spec/controllers/users_controller.rb
+  - `rspec` - to test all the test units at a time.
 
-### Run tests
-
-To run tests, run the following command:
-
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS  -->
+
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
 
-👤 **Derek Akrasi Konadu**
+👤 **Amare Kassa**
 
-- GitHub: [@obibaKwekuAdoma](https://github.com/obibaadoma)
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
+- GitHub: [@githubhandle](https://github.com/obibaadoma)
+- Twitter: [@twitterhandle](https://twitter.com/obibakwekuadoma)
+- LinkedIn: [@linkedInhandle](https://www.linkedin.com/in/derek-akrasi-konadu/)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
+- **Authorizing logged in users**
+- **Creating API for the application**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+> Feel free to check the [issues page](https://github.com/obibaadoma/Blog_App/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 
-If you like this project...
+> Please ⭐️ this repository if you think the project is useful for you.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank ruby on rails guide which is full of rich information and again Microverse that provides the right material that helps me to improve skills on RoRs.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
 
 ## ❓ FAQ <a name="faq"></a>
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
 
-- **[Question_1]**
+- **Does this project milestone accept data via forms?**
+  - Yes
 
-  - [Answer_1]
+- **Do you see the right information in each template for data you inserted via `rails c`**
 
-- **[Question_2]**
+  - Yes
 
-  - [Answer_2 ]
+   **Did you additional fields other than the model field in the form**
+
+  - No
+
+   **Does the optimized query improve the preformance of the query speed?**
+
+  - Yes
+
+  **did you implement the authentication from the scratch**
+
+  - No
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed....
+This project is [MIT](./LICENSE) licensed.
 
-
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)... You can also use [any other license.](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
