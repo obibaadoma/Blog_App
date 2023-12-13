@@ -46,19 +46,6 @@ RSpec.describe 'User show', type: :system, js: true do
       expect(page).to have_content('My second test')
       expect(page).to have_content('My third test')
     end
-
-    # it "I can see a button that lets me view all of a user's posts." do
-    #   expect(page).to have_content('See all posts')
-    # end
-
-    # it "When I click a user's post, it redirects me to that post's show page.." do
-    #   click_link 'Hello1'
-    #   expect(page.current_path).to have_content('/users/42/posts/14')
-    # end
-
-    # it "When I click to see all posts, it redirects me to the user's post's index page." do
-    #   click_link 'See all posts'
-    #   expect(page.current_path).to have_content('/users/42/posts')
-    # end
+    
   end
 end
