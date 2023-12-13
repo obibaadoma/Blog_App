@@ -1,39 +1,37 @@
-<div class="user-posts-wrapper">
-  <h1 class="header-text"> Here is an author with her/his corresponding bio and his/her posts </h1>
-  <div class="user-posts">
+<%= stylesheet_link_tag "application"%>
 
-    <div class="author-info user-link-container">
-        <%= image_tag("/images/#{@user.photo}", :class => 'post-box')%>
-        <div class="user-link-wrapper">
-          <p class="username-link"> <%= link_to @user.name, user_path(@user) %> </p>
-          <p class="posts-counter">  Number of posts: <%= @user.posts_counter %> </p>
-        </div>
-    </div>
+<div class="all_users"> 
+    <h1>A particular user</h1>
+    <a href=<%= "/users/#{@user.id}/posts/" %> >
+    <div class="user-container">
 
-    <div class="bio-container">
-      <p class="bio-title"> Bio </p>
-      <p class="bio-text"> <%= @user.bio%> </p>
-    </div>
-
-      <% @user.three_recent_posts.each do |post| %>
-        <div class="post-container">
-          <p class="post-title"> <%= link_to post.title, post_show_path(@user, post) %> </p>
-          <p class="post-text"> <%= post.text %> </p>
-          <p class="comments-likes-count">
-            Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
-          </p>
-        </div>
-      <% end %>
-
-      <div class="btn-group">
-        <button class="btn btn-create-post">
-        <%= link_to "Create a new Post", new_post_path %>
-        </button>
-
-        <button class="btn btn-all-posts">
-          <%= link_to 'See all posts', user_posts_path(@user) %>
-        </button>
-      </div>
-
-  </div>
+        <img src=" <%= @user.photo %>" alt="User profile" width="130" height="130"><br>
+       
+            <div class="single-user">
+                <h2>User Name:  <%= @user.name %></h2><br>
+                <div class="singler-user-p">
+                     <p >No.of Posts: <%= @user.posts_counter %></p><br>
+                </div>
+            </div>
+    </div>   
+    <a> 
+</div>
+<div class="particular_user">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+</div>
+<% @user.display_posts.each do |post| %>
+    <a href=<%= "/users/#{@user.id}/posts/#{post.id}" %> >
+        <div class="particular_user">
+            <h3>Post #<%= post.id %></h3><br>
+            <p><%= post.text %></p><br>
+            <div class="user-com-likes">
+                <p>Comments: <%= post.comments_counter %>, </p>
+                <p>Likes: <%= post.likes_counter %></p>
+            </div>
+        </div>    
+    <a>
+<% end %>
+<div class="user-btn">
+  <button type="button">See all posts</button>   
 </div>

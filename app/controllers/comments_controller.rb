@@ -1,33 +1,23 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
-    # @current_user = current_user
-    # @comment.author = @current_user
-    # @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
-  end
+  load_and_authorize_resource
 
   def create
-    @comment = Comment.new(comments_params)
-    @current_user = current_user
+    @comment = current_user.comments.new(comment_params)
     @post = Post.find(params[:id])
-    @comment.author = @current_user
-    @comment.post = @post
+    @comment.post_id = @post.id
 
     if @comment.save
-      flash.now[:notice] = 'Commented successfully!'
-      redirect_to post_show_path(@current_user)
+      flash[:success] = 'Comment created successfully'
+      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
     else
-      flash.now[:error] = 'Commenting failed!!'
-      render 'new'
+      flash.now[:error] = 'Error: Comment could not be ccreated!!'
+      render :new
     end
   end
 
-  def under_construction; end
-
   private
 
-  def comments_params
-    params.require(:comment).permit(:text, :author_id, :post_id)
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
