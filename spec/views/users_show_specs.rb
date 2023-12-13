@@ -46,6 +46,5 @@ RSpec.describe 'User show', type: :system, js: true do
       expect(page).to have_content('My second test')
       expect(page).to have_content('My third test')
     end
-    
   end
 end
