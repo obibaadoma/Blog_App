@@ -144,6 +144,12 @@ To test each unit tests of the project, execute the following command in your ro
 - Twitter: [Kroja13](https://twitter.com/Kroja13)
 - LinkedIn: [Kevin Cruz](https://www.linkedin.com/in/kevin-cruz-25159a201/)
 
+👤 **Fisayo Michael Animashaun**
+
+- GitHub: [@fmanimashaun](https://github.com/fmanimashaun)
+- Twitter: [@fmanimashaun](https://twitter.com/fmanimashaun)
+- LinkedIn: [Fisayo Michael Animashaun ](https://linkedin.com/in/fmanimashaun)
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 
