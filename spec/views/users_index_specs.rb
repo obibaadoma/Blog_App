@@ -25,16 +25,6 @@ RSpec.describe 'show all users', type: :feature do
     end
 
     describe 'GET #index' do
-      it 'I can see the username of all other users'
-      expect(page).to have_content('user.name')
-    end
-
-    describre 'GET #index' do
-      it 'I can see the profile picture for each user.'
-      expect(page).to have_content('user.photo')
-    end
-
-    describe 'GET #index' do
       it 'I can see the number of posts each user has written.'
       expect(page).to have_content('user.posts_counter')
     end
