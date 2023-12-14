@@ -8,7 +8,7 @@ class LikesController < ApplicationController
       flash[:success] = 'Like Pressed'
       redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
     else
-      flash.now[:error] = 'Error : like could not be created'
+      flash.now[:error] = 'Error : Like could not be created'
       render :new
     end
   end
