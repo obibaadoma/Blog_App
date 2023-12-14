@@ -9,7 +9,7 @@ class PostsController < ApplicationController
       flash[:success] = 'Post saved successfully'
       redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
     else
-      flash.now[:error] = 'Error: Failed to be created!!'
+      flash.now[:error] = 'Error: Failed to create post!!'
       render :new
     end
   end
@@ -39,6 +39,6 @@ class PostsController < ApplicationController
   def destroy
     authorize! :destroy, @post
     @post.destroy
-    redirect_to posts_path, notice: 'Post was successfully deleted.'
+    redirect_to posts_path, notice: 'Post was successfully dropped.'
   end
 end
