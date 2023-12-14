@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     @post = current_user.posts.new(post_params)
     @post.author_id = current_user.id
@@ -7,7 +9,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post saved successfully'
-      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
+      redirect_to user_post_path(@post.author, @post)
     else
       flash.now[:error] = 'Error: Failed to create post!!'
       render :new
@@ -30,15 +32,15 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :text)
-  end
-
   def destroy
     authorize! :destroy, @post
     @post.destroy
     redirect_to posts_path, notice: 'Post was successfully dropped.'
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
