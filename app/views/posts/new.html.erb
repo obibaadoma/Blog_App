@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Blogger Posts</title>
-  <%= stylesheet_link_tag   'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>  
-</head>
-<body>
-   <div class="container">
-      <h2> create a post </h2>
-   <%= form_with model: @post, url: "/posts" do |form| %>
-    <div class="form">
-    <%= form.text_field :title, placeholder: "title", class: "field" %>
-    <%= form.text_area :text,  placeholder: "Add a post", class: "field" %>
-    <%= form.submit "submit", class: "btn" %>
+<h1 class="form-header form-header-post-new"> Create new post </h1>
+
+
+<%= form_with model: @post, class:"form-rails ", local: true do |form|%>
+  <div class="form-wrapper">
+    <div class="fields-wrapper">
+      <%= form.label :title%>
+      <%= form.text_field :title%>
     </div>
-    <% end %>
+
+    <div class="fields-wrapper">
+      <%= form.label :text%>
+      <%= form.text_area :text%>
   </div>
-</body>
-</html>
+
+  <%= form.submit 'Post now', :class=>"btn btn-submit" %>
+
+  </div>
+<% end %>

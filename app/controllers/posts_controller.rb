@@ -1,41 +1,43 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
-
-  def create
-    @post = current_user.posts.new(post_params)
-    @post.author_id = current_user.id
-    @post.comments_counter = 0
-    @post.likes_counter = 0
-
-    if @post.save
-      flash[:success] = 'Post saved successfully'
-      redirect_to user_post_path(@post.author, @post)
-    else
-      flash.now[:error] = 'Error: Failed to create post!!'
-      render :new
-    end
-  end
-
   def index
-    @user = User.find(params[:id])
-    @userposts = @user.posts.includes(:comments)
-    render json: @posts, status: :ok
+    # @current_user = current_user
+    @user = User.find(params[:user_id])
+    @post = Post.where(author_id: params[:user_id])
+    # @post = @user.posts
+
+    # @post = Post.includes(:comments: [:comments, { comments: [:author] }]).find(params[:user_id])
+
+    # @user = User.includes(:posts, posts: [:comments,
+    #  { comments: [:author] }]).find(params[:user_id])
+    # @posts = Post.where(author_id: params[:user_id]).includes(:user)
+    render '/posts/index'
   end
 
   def show
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
-    render json: @posts, status: :ok
-    @current_user = current_user
+    # @current_user = current_user
+    # @comments = Comment.all
+    # render '/posts/show'
   end
 
   def new
     @post = Post.new
   end
 
-  def destroy
-    authorize! :destroy, @post
-    @post.destroy
-    redirect_to posts_path, notice: 'Post was successfully dropped.'
+  def create
+    @current_user = current_user
+    @post = Post.new(post_params)
+    @post.author = @current_user
+    @post.comments_counter = 0
+    @post.likes_counter = 0
+    if @post.save
+      flash.now[:notice] = 'Successfully posted'
+      redirect_to user_path(@current_user)
+    else
+      flash.now[:error] = 'Error in posting'
+      render :new
+    end
   end
 
   private

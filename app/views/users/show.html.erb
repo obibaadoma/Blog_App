@@ -1,50 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Platform Blog Posts</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>  
-</head>
-<body>
+<div class="user-posts-wrapper">
+  <h1 class="header-text"> Here is an author with her/his corresponding bio and his/her posts </h1>
+  <div class="user-posts">
 
-<section class="container">
-
- <div class="users_list">
-    <h1>Here is a User</h1>
-    <div class="users user-post">
-       <div class="user_image">
-          <img class="img" src="#{@user.photo}" alt="user image" />
-          <a href=<%= "/users/#{@user.id}/posts/" %> >
-            </div> 
-                <div class="info">
-                  <p  class="user_name"> <%= @user.name %> </p>
-                  <span class="number_posts"> Number of posts : <%= "#{@user.posts_counter || 0}" %> <span>
-                </div>
-            </div> 
-            </a>
-       </div>
-
-       <div class="bio">
-          <h2>Bio </h2>
-         <p class="post-text"><%= @user.bio %> </p>
-       </div>
+    <div class="author-info user-link-container">
+        <%= image_tag("/images/#{@user.photo}", :class => 'post-box')%>
+        <div class="user-link-wrapper">
+          <p class="username-link"> <%= link_to @user.name, user_path(@user) %> </p>
+          <p class="posts-counter">  Number of posts: <%= @user.posts_counter %> </p>
+        </div>
     </div>
-    <div class="posts">
-    <%  @user.display_posts.each do |post| %>
-      <a href=<%= "/users/#{@user.id}/posts/#{post.id}" %> >
-       <h3> PostNo <%= post.id %> </h3>
-       <div class="wrap-post">
-       <p class="post-text"> <%= post.text %> </p>
-       <div class="comments-likes">
-         <span>Comments: <%= "#{post.comments_counter || 0}" %> </span>
-         <span> Likes: <%= "#{post.likes_counter || 0}" %> </span>
-      </div>
-      </div>
-      </a>
-     <% end %>
-       <a class="see-posts" href=<%="/users/#{@user.id}/posts" %> > See All Posts </a>
-     </div>
 
- </section>
-</body>
-</html>
+    <div class="bio-container">
+      <p class="bio-title"> Bio </p>
+      <p class="bio-text"> <%= @user.bio%> </p>
+    </div>
+
+      <% @user.three_recent_posts.each do |post| %>
+        <div class="post-container">
+          <p class="post-title"> <%= link_to post.title, post_show_path(@user, post) %> </p>
+          <p class="post-text"> <%= post.text %> </p>
+          <p class="comments-likes-count">
+            Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+          </p>
+        </div>
+      <% end %>
+
+      <div class="btn-group">
+        <button class="btn btn-create-post">
+        <%= link_to "Create a new Post", new_post_path %>
+        </button>
+
+        <button class="btn btn-all-posts">
+          <%= link_to 'See all posts', user_posts_path(@user) %>
+        </button>
+      </div>
+
+  </div>
+</div>

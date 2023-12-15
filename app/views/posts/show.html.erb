@@ -1,35 +1,42 @@
-<%= stylesheet_link_tag "application"%>
 
-<div class="all_users">
-    <h1>A particular post</h1>
-    <div class="user-container">
-            <div class="single-post">
-                    <div class ="single-post-top">
-                        <p>Post #<%= @post.id %> by: <%= @post.author.name %></p><br>
-                        <div class="single-post-top-content">
-                            <p>Comments: <%= @post.comments_counter %></p>,
-                            <p>Likes: <%= @post.likes_counter %></p><br>
-                        </div>
-                    </div>
-                <p><%= @post.text %></p><br>
-            </div>
+<div class="post-detail-wrapper">
+  <h1 class="header-text"> This shows the details of a post with id = <%= @post.id %>
+  and written by an author with id = <%= @post.author.id%>
+  </h1>
+
+  <div class="post-comment-container">
+   <div class="post-info-text">
+    <div class="post-header">
+      <p class="post-title"> <%= @post.title %> by <%= @post.author.name%> </p>
+      <p class="comments-likes-count">
+        Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %>
+      </p>
     </div>
-</div>
 
-<div class="all-coments-in-posts-outer">
-    <% @post.display_comments.each do |comment| %>
-        <div class="all-coments-in-posts">
-                <p><%= comment.author.name %>: </p>
-                <p><%= comment.text %></p>
-            </div>
-            <% if can? :destroy, @post %>
-  <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
-<% end %>
-<% @comments.each do |comment| %>
-  <% if can? :destroy, comment %>
-    <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure you want to delete this comment?" } %>
-  <% end %>
-<% end %>
+    <div class="post-text-wrapper">
+      <p class="post-text"> <%= @post.text%> </p>
+    </div>
+   </div>
 
-<% end %>
+   <%= render "shared/like" %>
+
+   <ul class="comment-list">
+    <% @post.comments.each do |comment| %>
+      <li class="comment-item">
+       <%= comment.author.name  %>: <%= comment.text %>
+      </li>
+    <% end %>
+   </ul>
+
+   <div class="btn-group">
+     <button class="btn btn-create-comment">
+        <%= link_to "Comment here", comment_new_path %>
+     </button>
+
+    <button class="btn btn-all-comments">
+      <%= link_to 'See all comments', uncompleted_path %>
+    </button>
+   </div>
+
+  </div>
 </div>

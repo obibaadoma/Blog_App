@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Platfom Blog Posts</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>  
-</head>
-<body>
-    <section class="users_list">
-    <h1>The Users List</h1>
-    <div class="Add-post">
-      <a href=<%="/posts/new" %>>Add a new post</a>
-  </div>
-    <% @users.each do |user| %>
-    <div class="users">
-      <div class="user_image">
-        <img class="img" src=<%= user.photo %> alt="user image" />
-      </div> 
-         <a href=<%= "/users/#{user.id}" =%> >
-         <div class="info">
-           <p class="user_name"> <%= user.name %> </p>
-            <span class="number_posts"> Number of posts : <%= "#{user.posts_counter || 0}" %> <span>
-         </div>
-         </a>
-     </div>
-     <% end %>
-     </section>
-</body>
-</html>
+<div class="users-index-wrapper">
+<h1 class="header-text">Here is list of users and their corresponding number of posts</h1>
+
+<ul class="users-container">
+  <% @users.each do |user| %>
+    <li class="author-info user-link-container">
+    <%= image_tag("/images/#{user.photo}", :class => 'post-box')%>
+      <div class="user-link-wrapper">
+        <p class="username-link"> <%= link_to user.name, user_path(user) %> </p>
+        <p class="posts-counter"> Number of posts: <%= user.posts_counter %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+</div>

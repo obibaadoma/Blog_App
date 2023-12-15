@@ -1,47 +1,29 @@
-# Rails.application.routes.draw do
-#   root to: 'users#index'
-#   devise_for :users
-
-#   get '/users/', to: 'users#index'
-#   get '/users/:id/', to: 'users#show'
-
-#   get '/posts/new', to: 'posts#new'
-#   get '/users/:id/posts/', to: 'posts#index'
-#   get '/users/:id/posts/:id/', to: 'posts#show'
-
-#   post '/posts', to: 'posts#create'
-#   post '/users/:user_id/posts/:id/comments', to: 'comments#create'
-#   post '/users/:user_id/posts/:id/likes', to: 'likes#create'
-# end
-
 Rails.application.routes.draw do
-  devise_for :users
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
-  end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  root 'users#index'
-  get '/users/', to: 'users#index'
-  get '/users/:id/', to: 'users#show'
+  devise_for :users, controllers: {
+        sessions: 'users/sessions' }
 
-  get '/posts/new', to: 'posts#new'
-  get '/users/:user_id/posts/', to: 'posts#index'
-  get '/users/:user_id/posts/:id/', to: 'posts#show'
 
-  post '/posts', to: 'posts#create'
-  post '/users/:user_id/posts/:id/comments', to: 'comments#create'
-  post '/users/:user_id/posts/:id/likes', to: 'likes#create'
-  delete '/users/:user_id/posts/:id', to: 'posts#destroy'
-  delete '/users/:user_id/posts/:post_id/comments/:id', to: 'comments#destroy'
+  root to: "users#index"
 
-  namespace :api, defaults: { format: :json } do
-    resources :users, only: %i[index show] do
-      resources :posts, only: %i[index show] do
-        resources :comments, only: %i[index create]
-      end
-    end
-  end
+
+
+
+
+  resources :users, only: [:index, :show]
+
+  resources :posts, only: [:new, :create]
+
+  get '/users/:user_id/posts', to: 'posts#index', as: 'user_posts'
+  get '/users/:user_id/posts/:id', to: 'posts#show', as: 'post_show'
+  post '/users/:user_id/posts/:id/comments', to: 'comments#create', as: 'comment_create'
+  get '/users/:user_id/posts/:id/comments/new', to: 'comments#new', as: 'comment_new'
+  post '/users/:user_id/posts/:id/likes', to: 'likes#create', as: 'like_create'
+  get '/users/:user_id/posts/:id/likes/new', to: 'likes#new', as: 'like_new'
+
+  get '/uncompleted', to: "comments#under_construction"
+
+
+
 end
