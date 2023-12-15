@@ -209,7 +209,7 @@ I would like to thank ruby on rails guide which is full of rich information and 
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed..
+This project is [MIT](./LICENSE) licensed...
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
