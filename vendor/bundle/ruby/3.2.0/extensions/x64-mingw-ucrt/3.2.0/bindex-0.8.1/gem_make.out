@@ -1,0 +1,19 @@
+current directory: G:/Microverse/BackEnd/Blog_App/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+C:/Ruby32-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: G:/Microverse/BackEnd/Blog_App/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231213-21440-9a2i26 sitelibdir\=./.gem.20231213-21440-9a2i26 clean
+
+current directory: G:/Microverse/BackEnd/Blog_App/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231213-21440-9a2i26 sitelibdir\=./.gem.20231213-21440-9a2i26
+generating cruby-x64-mingw-ucrt.def
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: G:/Microverse/BackEnd/Blog_App/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231213-21440-9a2i26 sitelibdir\=./.gem.20231213-21440-9a2i26 install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20231213-21440-9a2i26/skiptrace/internal
+
+current directory: G:/Microverse/BackEnd/Blog_App/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20231213-21440-9a2i26 sitelibdir\=./.gem.20231213-21440-9a2i26 clean
