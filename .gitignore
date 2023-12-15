@@ -4,11 +4,14 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# ignore node_modules
+/node_modules
 # Ignore bundler config.
 /.bundle
 
-# .gitignore
-node_modules/
+# Ignore all environment files (except templates).
+/.env*
+!/.env*.erb
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -21,7 +24,7 @@ node_modules/
 !/tmp/pids/
 !/tmp/pids/.keep
 
-# Ignore uploaded files in development.
+# Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
 !/storage/.keep
 /tmp/storage/*

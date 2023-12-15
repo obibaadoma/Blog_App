@@ -138,6 +138,18 @@ To test each unit tests of the project, execute the following command in your ro
 - Twitter: [@twitterhandle](https://twitter.com/obibakwekuadoma)
 - LinkedIn: [@linkedInhandle](https://www.linkedin.com/in/derek-akrasi-konadu/)
 
+👤 **EvanSnave**
+
+- GitHub: [EvansSnave](https://github.com/EvansSnave)
+- Twitter: [Kroja13](https://twitter.com/Kroja13)
+- LinkedIn: [Kevin Cruz](https://www.linkedin.com/in/kevin-cruz-25159a201/)
+
+👤 **Fisayo Michael Animashaun**
+
+- GitHub: [@fmanimashaun](https://github.com/fmanimashaun)
+- Twitter: [@fmanimashaun](https://twitter.com/fmanimashaun)
+- LinkedIn: [Fisayo Michael Animashaun ](https://linkedin.com/in/fmanimashaun)
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 
@@ -197,7 +209,7 @@ I would like to thank ruby on rails guide which is full of rich information and 
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed..
+This project is [MIT](./LICENSE) licensed...
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
